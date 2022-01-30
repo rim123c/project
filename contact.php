@@ -1,7 +1,30 @@
 
 <?php 
 mysqli_connect("Localhost","root","","Design")
+    if(isset($_POST['contactus'])) 
+{
+    $Fname=$_POST['first-name'];
+    $Lname=$_POST['Lastname'];
+    $Subject=$_POST['Subject'];
+    $Message=$_POST['Message'];
+
+$query ="insert into contact_values('','$Fname','$Lname','$Subject','$Message')";
+
+    $result=mysql_query($conn,$query);
+if ($result) {
+
+    header("Location:trending.php");
+
+    }
+    else{
+        echo'error';
+
+    }
+}
+
 ?>
+
+
 
 
 <html lang="en">
